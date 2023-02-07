@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="h-full bg-slate-900">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python IDE в браузере</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"
+  integrity="sha512-XMlgZzPyVXf1I/wbGnofk1Hfdx+zAWyZjh6c21yGo/k1zNC4Ve6xcQnTDTCHrjFGsOrVicJsBURLYktVEu/8vQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"
+  integrity="sha512-/mavDpedrvPG/0Grj2Ughxte/fsm42ZmZWWpHz1jCbzd5ECv8CB7PomGtw0NAnhHmE/lkDFkRMupjoohbKNA1Q=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/theme/dracula.css"/> 
+  <style>
+      .CodeMirror {
+          height: 100%;
+      }
+  </style>
+</head>
+<body class="container h-full overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5">
+
+    <p class="text-slate-200 text-3xl my-2 font-extrabold mx-2 pt-5">Python в браузере</p>
+    <div class="h-3/4 flex flex-row">
+        <div class="grid w-1/2 border-dotted border-2 border-slate-500 mx-2">
+            <textarea id="code" name="code" class="h-full"></textarea>
+        </div>
+        <div class="grid w-1/2 border-dotted border-2 border-slate-500 mx-2">
+            <textarea readonly class="p-8 text-slate-200 bg-slate-900" id="output" name="output"></textarea>
+        </div>
+    </div>
+    <div class="pb-2">
+    <button onclick="runCode()" type="button" class="mx-2 my-4 h-12 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-700 hover:bg-green-900 focus:outline-none text-slate-300">Выполнить</button>
+    <button onclick="clearOutput()" type="button" class="mx-2 my-4 h-12 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-900 focus:outline-none text-slate-300">Очистить вывод</button>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+
+
+  
